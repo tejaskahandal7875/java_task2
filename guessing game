@@ -1,0 +1,74 @@
+package game;
+
+import java.util.Scanner;
+
+public class gaming {
+	    static int guess;
+	    static int number;
+	    static int point=0;
+	    public static void numberGuessingGame(){
+	        Scanner s=new Scanner(System.in);
+	        number=1+(int)(100*Math.random());
+	        int k=7;
+	        int i;
+	        System.out.println("NUMBER GUESSING GAME RULES:\n------------------------"
+	        		+ "\n 1-The Number is choosen between 1 to 100\n 2-total no of attempt is 7/seven ");
+	     	        for(i=0;i<k;i++){
+	            System.err.println("----------------------------\n Enter the guess no :");
+	            guess=s.nextInt();
+	            if(number ==guess){
+	                System.err.println("CONGRATULATIONS!"+"You Guessed the number.");
+	               rounds();
+	                break;
+	            }
+	            else if(number>guess&&i!=k-1)
+	              {
+	                System.out.println(" The No is Greater than "+guess);
+	              }
+	            else if(number<guess&&i!=k-1)
+	            {
+	                System.out.println("The No is Less than "+guess);
+	            }
+	        }
+	        if(i==k)
+	        {
+	        	System.out.println("YOU HAVE EXHAUSTED YOUR LIMIT:");
+	        	System.err.println("THE NUMBER WAS "+number);
+	          	rounds();
+	        }
+	    }
+	    public static void rounds(){
+	        System.out.println("DO YOU HAVE PLAY ONE MORE ROUND \n ENTER 1-YES\n ENTER 2-NO");
+	        System.out.println("*******************************");
+	        Scanner s=new Scanner(System.in);
+	        int a=s.nextInt();
+	        if(a==1){
+	            numberGuessingGame();
+
+	        }
+	        else{
+	            System.out.println("PLAY NEXT TIME THANKS FOR PLAYING!");
+	            System.out.println("---------------------------------------------");
+	            if(number==guess){
+	                point++;
+	                System.out.println("TOTAL ATTEMPT NUMBER"+point+"+ POINT IS:"+point);
+	                System.out.println("***********************************************");
+
+	            }
+	            else{
+	                System.out.println("Your point is :"+point);
+	                System.out.println("-------------------------");
+	            }
+	            System.out.println("Total Score is :"+point*2);
+	            System.out.println("-----------------------------");
+	        }
+	    }
+	        public static void main(String args[]){
+	            System.out.println("*****************************");
+	            System.out.println("NAME:NUMBER GUESSING GAME");
+	            System.out.println("******************************");
+	            numberGuessingGame();
+	    
+	}
+	
+}
